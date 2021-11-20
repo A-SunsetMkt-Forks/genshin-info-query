@@ -17,7 +17,7 @@
         InlineNotification,
     } from "carbon-components-svelte";
     import { Grid, Row, Column } from "carbon-components-svelte";
-    let msg = "";
+    let msg = "请点击确认以查询";
     let success;
     let time;
     let data = {};

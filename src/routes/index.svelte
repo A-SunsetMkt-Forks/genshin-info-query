@@ -1,15 +1,14 @@
 <script>
     import {
-        TextArea,
-        Modal,
-        Tile,
         Button,
-        AspectRatio,
-        Column,
+        Icon,
+        Modal,
+        TextArea,
+        Tile,
     } from "carbon-components-svelte";
-    import { Icon } from "carbon-components-svelte";
     import Settings32 from "carbon-icons-svelte/lib/Settings32";
     import { onMount } from "svelte";
+    import { server as defaultServer } from "../../app-config.json";
     function lsValue(item) {
         let value = localStorage.getItem(item);
         if (value == "undefined" || value == "null") return "";
@@ -17,9 +16,8 @@
     }
     onMount(() => {
         cookies = lsValue("COOKIES");
-        if (!lsValue("SERVER"))
-            localStorage.setItem("SERVER", "https://yuanshen.vercel.app/api");
-        server = lsValue("SERVER") || "https://yuanshen.vercel.app/api";
+        if (!lsValue("SERVER")) localStorage.setItem("SERVER", defaultServer);
+        server = lsValue("SERVER") || defaultServer;
     });
     let openCookie = false;
     let openServer = false;
@@ -34,6 +32,12 @@
     <div style="padding:2em">
         <h1>INFO QUERY!</h1>
         <p>这是一个由Svelte和Carbon UI构建的界面</p>
+        <p>
+            因为暂未做适配，浏览器需要支持
+            <a href="https://caniuse.com/mdn-javascript_statements_import">
+                import特性
+            </a>
+        </p>
     </div>
     <Button on:click={() => (openCookie = true)}
         ><Icon render={Settings32} /> Cookie Settings
@@ -79,7 +83,7 @@
     on:close
     on:submit
 >
-    <p>默认api为：https://yuanshen.vercel.app/api</p>
+    <p>默认api为：{defaultServer}</p>
     <TextArea
         bind:value={server}
         labelText="下面写入服务器"

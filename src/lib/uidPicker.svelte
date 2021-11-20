@@ -11,6 +11,7 @@
     import { createEventDispatcher } from "svelte";
     import { page } from "$app/stores";
     import { onMount } from "svelte";
+    import { server as defaultServer } from "../../app-config.json";
 
     const dispatch = createEventDispatcher();
 
@@ -45,8 +46,11 @@
     onMount(() => {
         // 获取数据，并触发ready时间，供外部获取server
         cookies = lsValue("COOKIES");
-        server = lsValue("SERVER") || "/api";
-        uid = Number($page.query.get("uid"));
+        server = lsValue("SERVER") || defaultServer;
+        uid =
+            Number($page.query.get("uid")) ||
+            new URLSearchParams(location.search).get("uid");
+        // FIX BUG AS $page DOES NOT WORK AFTER BUILD
         if (uid > 100000001) sendRequest();
         else uid = 100010001;
         dispatch("ready", { cookies, server, uid });

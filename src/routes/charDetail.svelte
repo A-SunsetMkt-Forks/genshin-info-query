@@ -5,7 +5,7 @@
     import AvatarDetail from "$lib/characterCard.svelte";
     import { Tile, Column } from "carbon-components-svelte";
 
-    let msg = "";
+    let msg = "请点击确认以查询";
     let time;
     let success;
     let data = {};

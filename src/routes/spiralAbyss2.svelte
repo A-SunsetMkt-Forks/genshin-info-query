@@ -3,7 +3,7 @@
     import SpiralAbyss from "$lib/spiralAbyssCommon.svelte";
     import { Loading, InlineNotification } from "carbon-components-svelte";
 
-    let msg = "";
+    let msg = "请点击确认以查询";
     let success;
     let time;
     let data;

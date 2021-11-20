@@ -1,7 +1,7 @@
 <script lang="ts">
     import "carbon-components-svelte/css/white.css";
     import Header from "$lib/header/Header.svelte";
-    import { Content, Grid } from "carbon-components-svelte";
+    import { Content } from "carbon-components-svelte";
 </script>
 
 <Header />
