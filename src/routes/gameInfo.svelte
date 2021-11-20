@@ -17,6 +17,7 @@
     } from "carbon-components-svelte";
     import { Grid, Row, Column } from "carbon-components-svelte";
     let msg = "";
+    let success;
     let time;
     let data = {};
     let isLoading;
@@ -24,7 +25,15 @@
 
 <h1>游戏信息</h1>
 <br />
-<UidPicker bind:msg bind:data bind:time bind:isLoading action="gameInfo" />
+
+<UidPicker
+    bind:success
+    bind:msg
+    bind:data
+    bind:time
+    bind:isLoading
+    action="gameInfo"
+/>
 
 {#if isLoading}
     <Loading />
@@ -148,3 +157,4 @@
         </div>
     </DataTable>
 {/if}
+{#if !success}{msg}{/if}

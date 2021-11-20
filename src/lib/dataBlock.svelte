@@ -36,9 +36,4 @@
         width: 100%;
         padding: 0.5em 0.2em;
     }
-    @media screen and (max-width: 600px) {
-        .main {
-            width: 22%;
-        }
-    }
 </style>

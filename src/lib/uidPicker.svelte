@@ -16,6 +16,8 @@
 
     async function sendRequest() {
         //执行完此函数，就会修改router
+        if (uid !== Number($page.query.get(uid)))
+            goto("/" + action + "?uid=" + uid);
         isLoading = true;
         const res = await fetch(server, {
             method: "POST",
@@ -28,10 +30,8 @@
         });
 
         const obj = await res.json();
-        if (obj.success) {
-            ({ time, data } = obj);
-        } else ({ msg } = obj);
-        if (uid !== Number($page.params.uid)) goto("/" + action + "/" + uid);
+        ({ time, data = {}, msg, success } = obj);
+
         isLoading = false;
         dispatch("load", { cookies, server, uid });
     }
@@ -46,7 +46,7 @@
         // 获取数据，并触发ready时间，供外部获取server
         cookies = lsValue("COOKIES");
         server = lsValue("SERVER") || "/api";
-        uid = Number($page.params.uid);
+        uid = Number($page.query.get("uid"));
         if (uid > 10000000) sendRequest();
         else uid = 100010001;
         dispatch("ready", { cookies, server, uid });
@@ -56,6 +56,7 @@
     export let msg;
     export let data;
     export let time;
+    export let success = false;
     export let action;
     export let isLoading;
 

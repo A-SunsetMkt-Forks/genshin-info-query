@@ -219,7 +219,8 @@
         {/each}
     </div>
     <div class="image-holder" on:click={() => (isOpenRel = true)}>
-        {avatar.element} {avatar.name} 好感度等级：{avatar.fetter}
+        {avatar.element}
+        {avatar.name} 好感度等级：{avatar.fetter}
     </div>
     <div class="constellations">
         {#each avatar.constellations as con}
@@ -334,13 +335,13 @@
     .reliquaries {
         flex-grow: 1;
         position: absolute;
-        top: 0;
+        top: 1em;
         left: 0;
     }
     .constellations {
         flex-grow: 1;
         position: absolute;
-        top: 0;
+        top: 1em;
         right: 0;
     }
     .image-holder {

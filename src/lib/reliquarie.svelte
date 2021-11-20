@@ -5,7 +5,7 @@
 
 <div class="container" on:click {style}>
     <img class="icon" src={rel.icon} alt={rel.name} />
-    <div style="position:absolute;bottom:0;color:#ffcc33">
+    <div class="stars">
         {"★".repeat(rel.rarity)}
     </div>
 </div>
@@ -24,5 +24,18 @@
         background-color: #676767;
         border: #d3bd8e solid 0.2em;
         border-radius: 1em;
+    }
+    .stars {
+        position: absolute;
+        bottom: 0;
+        color: #ffcc33;
+    }
+    @media screen and (max-width: 600px) {
+        .icon {
+            width: 3em;
+        }
+        .stars {
+            font-size: xx-small;
+        }
     }
 </style>
