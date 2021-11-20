@@ -8,15 +8,15 @@
 
 <main>
     <Content>
-        <Grid>
-            <slot />
-        </Grid>
+        <slot />
     </Content>
 </main>
 
 <footer>
     <p>
-        Powered by Svelte & Made by <a href="https://github.com/YieldRay/">YieldRay</a>
+        Powered by Svelte & Made by <a href="https://github.com/YieldRay/"
+            >YieldRay</a
+        >
     </p>
 </footer>
 

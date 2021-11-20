@@ -18,6 +18,8 @@
     }
     onMount(() => {
         cookies = lsValue("COOKIES");
+        if (!lsValue("SERVER"))
+            localStorage.setItem("SERVER", "https://yuanshen.vercel.app/api");
         server = lsValue("SERVER") || "https://yuanshen.vercel.app/api";
     });
     let openCookie = false;
@@ -31,11 +33,10 @@
 <br />
 <AspectRatio ratio="16x9">
     <Tile style="height: 100%">
-        <Row style="padding:2em">
+        <div style="padding:2em">
             <h1>INFO QUERY!</h1>
-            <br />
             <p>这是一个由Svelte和Carbon UI构建的界面</p>
-        </Row>
+        </div>
     </Tile>
 </AspectRatio>
 <ButtonSet>
