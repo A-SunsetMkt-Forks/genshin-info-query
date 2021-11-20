@@ -1,5 +1,4 @@
 <script>
-    import { Column, Tile } from "carbon-components-svelte";
     export let title;
     export let subtitle;
 </script>

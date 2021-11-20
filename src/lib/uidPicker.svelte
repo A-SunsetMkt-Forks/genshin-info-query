@@ -47,7 +47,7 @@
         cookies = lsValue("COOKIES");
         server = lsValue("SERVER") || "/api";
         uid = Number($page.query.get("uid"));
-        if (uid > 10000000) sendRequest();
+        if (uid > 100000001) sendRequest();
         else uid = 100010001;
         dispatch("ready", { cookies, server, uid });
     });

@@ -1,6 +1,6 @@
 <script>
     import UidPicker from "$lib/uidPicker.svelte";
-    import { Loading } from "carbon-components-svelte";
+    import { Loading, InlineNotification } from "carbon-components-svelte";
     import AvatarCard from "$lib/characterIcon.svelte";
     import AvatarDetail from "$lib/characterCard.svelte";
     import { Tile, Column } from "carbon-components-svelte";
@@ -41,4 +41,10 @@
         </Tile>
     </Column>
 {/if}
-{#if !success}{msg}{/if}
+{#if !success && !isLoading}
+    <InlineNotification
+        lowContrast
+        kind="error"
+        title="Error:"
+        subtitle={msg}
+    />{/if}

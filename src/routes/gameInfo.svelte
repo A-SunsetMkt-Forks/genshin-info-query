@@ -14,6 +14,7 @@
         Tile,
         Tag,
         TextArea,
+        InlineNotification,
     } from "carbon-components-svelte";
     import { Grid, Row, Column } from "carbon-components-svelte";
     let msg = "";
@@ -157,4 +158,11 @@
         </div>
     </DataTable>
 {/if}
-{#if !success}{msg}{/if}
+{#if !success && !isLoading}
+    <InlineNotification
+        lowContrast
+        kind="error"
+        title="Error:"
+        subtitle={msg}
+    />
+{/if}

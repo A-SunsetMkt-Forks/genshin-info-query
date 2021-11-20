@@ -1,11 +1,12 @@
 <script>
     import UidPicker from "$lib/uidPicker.svelte";
-    import { Loading } from "carbon-components-svelte";
+    import SpiralAbyss from "$lib/spiralAbyssCommon.svelte";
+    import { Loading, InlineNotification } from "carbon-components-svelte";
 
     let msg = "";
     let success;
     let time;
-    let data = {};
+    let data;
     let isLoading;
 </script>
 
@@ -17,10 +18,21 @@
     bind:msg
     bind:time
     bind:isLoading
-    action="spiralAbyss2"
+    action="spiralAbyss1"
 />
 {#if isLoading}
     <Loading />
 {/if}
-{JSON.stringify(data)}
-{#if !success}{msg}{/if}
+
+{#if data}
+    <SpiralAbyss {data} />
+{/if}
+
+{#if !success && !isLoading}
+    <InlineNotification
+        lowContrast
+        kind="error"
+        title="Error:"
+        subtitle={msg}
+    />
+{/if}

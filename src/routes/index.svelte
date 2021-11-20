@@ -1,12 +1,11 @@
 <script>
     import {
-        Row,
         TextArea,
         Modal,
         Tile,
-        ButtonSet,
         Button,
         AspectRatio,
+        Column,
     } from "carbon-components-svelte";
     import { Icon } from "carbon-components-svelte";
     import Settings32 from "carbon-icons-svelte/lib/Settings32";
@@ -31,22 +30,18 @@
 <br />
 <br />
 <br />
-<AspectRatio ratio="16x9">
-    <Tile style="height: 100%">
-        <div style="padding:2em">
-            <h1>INFO QUERY!</h1>
-            <p>这是一个由Svelte和Carbon UI构建的界面</p>
-        </div>
-    </Tile>
-</AspectRatio>
-<ButtonSet>
+<Tile style="height: 100%">
+    <div style="padding:2em">
+        <h1>INFO QUERY!</h1>
+        <p>这是一个由Svelte和Carbon UI构建的界面</p>
+    </div>
     <Button on:click={() => (openCookie = true)}
-        ><Icon render={Settings32} /> Cookie Settings</Button
-    >
+        ><Icon render={Settings32} /> Cookie Settings
+    </Button>
     <Button on:click={() => (openServer = true)} kind="secondary"
-        ><Icon render={Settings32} /> Server Settings</Button
-    >
-</ButtonSet>
+        ><Icon render={Settings32} /> Server Settings
+    </Button>
+</Tile>
 
 <Modal
     bind:open={openCookie}
