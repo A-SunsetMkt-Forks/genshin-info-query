@@ -27,8 +27,8 @@
 {#if isLoading}
     <Loading />
 {:else if data.avatars}
-    <Column lg={8}>
-        <div style="overflow-x: scroll;white-space:nowrap">
+    <div class="container">
+        <div class="avatars">
             {#each data.avatars as avatar (avatar.id)}
                 <AvatarCard
                     {avatar}
@@ -39,7 +39,7 @@
         <Tile>
             <AvatarDetail avatar={currentAvatar} />
         </Tile>
-    </Column>
+    </div>
 {/if}
 {#if !success && !isLoading}
     <InlineNotification
@@ -48,3 +48,13 @@
         title="Error:"
         subtitle={msg}
     />{/if}
+
+<style>
+    .container {
+        max-width: 34em;
+    }
+    .avatars {
+        overflow-x: scroll;
+        white-space: nowrap;
+    }
+</style>
