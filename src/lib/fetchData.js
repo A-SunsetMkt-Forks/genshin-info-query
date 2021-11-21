@@ -1,5 +1,5 @@
 import { onMount } from "svelte";
-import { server as defaultServer } from "../../app-config.json";
+import { server as defaultServer } from "../app-config.json";
 
 export default function fetchData(body, callback = (s) => {}) {
     return new Promise((resolve, reject) => {

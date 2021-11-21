@@ -31,7 +31,6 @@
     <div slot="skip-to-content">
         <SkipToContent />
     </div>
-
     <HeaderNav>
         <HeaderNavItem href="/" text="首页" />
         <HeaderNavItem href="/selfSign" text="cookie签到" />
@@ -44,7 +43,6 @@
             <HeaderNavItem href={"/spiralAbyss2?uid=" + uid} text="上期" />
         </HeaderNavMenu>
     </HeaderNav>
-
     <SideNav bind:isOpen={isSideNavOpen} rail>
         <SideNavItems>
             <SideNavLink

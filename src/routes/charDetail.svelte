@@ -27,7 +27,7 @@
 {#if isLoading}
     <Loading />
 {:else if data.avatars}
-    <Column sm={6} md={6} lg={10}>
+    <Column lg={8}>
         <div style="overflow-x: scroll;white-space:nowrap">
             {#each data.avatars as avatar (avatar.id)}
                 <AvatarCard

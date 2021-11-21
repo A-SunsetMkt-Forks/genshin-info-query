@@ -1,4 +1,5 @@
 function setArray(relArray) {
+    // 圣遗物id数组
     return relArray.map((rel) => rel.set.id);
 }
 

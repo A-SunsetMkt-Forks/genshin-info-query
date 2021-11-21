@@ -17,6 +17,7 @@
         InlineNotification,
     } from "carbon-components-svelte";
     import { Grid, Row, Column } from "carbon-components-svelte";
+    import WorldExplore from "$lib/worldExplore.svelte";
     let msg = "请点击确认以查询";
     let success;
     let time;
@@ -96,6 +97,13 @@
         </Row>
     </Grid>
 
+    <!--世界-->
+    <div style="overflow-x: scroll;white-space:nowrap">
+        {#each data.world_explorations as world}
+            <WorldExplore {world} style="margin:0 1em" />
+        {/each}
+    </div>
+
     <!--洞天-->
     <Tile>
         <Tabs>
@@ -128,7 +136,6 @@
     </Tile>
 
     <!--角色-->
-
     <DataTable
         title="角色"
         description="角色数据"
@@ -151,7 +158,7 @@
                         <img src={row.image} alt={row.name} width="50" />
                     </Column>
                     <Column sm={3} md={4} lg={8}>
-                        <TextArea value={JSON.stringify(row)} />
+                        <TextArea rows={2} value={JSON.stringify(row)} />
                     </Column>
                 </Row>
             </Grid>

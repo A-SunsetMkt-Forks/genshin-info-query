@@ -11,7 +11,7 @@
     import { createEventDispatcher } from "svelte";
     import { page } from "$app/stores";
     import { onMount } from "svelte";
-    import { server as defaultServer } from "../../app-config.json";
+    import { server as defaultServer } from "../app-config.json";
 
     const dispatch = createEventDispatcher();
 

@@ -8,7 +8,7 @@
     } from "carbon-components-svelte";
     import Settings32 from "carbon-icons-svelte/lib/Settings32";
     import { onMount } from "svelte";
-    import { server as defaultServer } from "../../app-config.json";
+    import { server as defaultServer } from "../app-config.json";
     function lsValue(item) {
         let value = localStorage.getItem(item);
         if (value == "undefined" || value == "null") return "";

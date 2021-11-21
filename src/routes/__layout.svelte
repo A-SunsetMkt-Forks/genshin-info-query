@@ -5,13 +5,11 @@
 </script>
 
 <Header />
-
 <main>
     <Content>
         <slot />
     </Content>
 </main>
-
 <footer>
     <p>
         Powered by Svelte & Made by <a href="https://github.com/YieldRay/"
