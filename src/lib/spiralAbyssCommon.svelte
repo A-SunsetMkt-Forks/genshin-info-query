@@ -5,7 +5,7 @@
         ExpandableTile,
         Tile,
         Tag,
-        Column,
+        ToastNotification,
     } from "carbon-components-svelte";
 
     export let data;
@@ -21,7 +21,7 @@
         ).toLocaleDateString()}
     </small>
 </Tile>
-{#if data.is_unlock}
+{#if data.is_unlock && data.total_battle_times}
     <Tile style="background-color:#1d2538;border-radius:1em;padding:1em 0">
         <div
             style="color:#d6c099;text-align:center;font-size:x-large;margin-bottom:.4em"
@@ -93,6 +93,12 @@
 
     <!--floors-->
     <div style="height:1em" />
+    <ToastNotification
+        lowContrast
+        kind="error"
+        title="注意"
+        subtitle="由于米游社api修改，此功能已失效！"
+    />
 
     {#each data.floors.reverse() as floor}
         <ExpandableTile
@@ -132,7 +138,7 @@
         lowContrast
         kind="error"
         title="Error:"
-        subtitle="未解锁"
+        subtitle="未解锁 或 未挑战"
     />
 {/if}
 

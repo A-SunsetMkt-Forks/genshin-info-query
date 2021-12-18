@@ -5,6 +5,7 @@
         Modal,
         TextArea,
         Tile,
+        ToastNotification,
     } from "carbon-components-svelte";
     import Settings32 from "carbon-icons-svelte/lib/Settings32";
     import { onMount } from "svelte";
@@ -36,8 +37,14 @@
             因为暂未做适配，浏览器需要支持
             <a href="https://caniuse.com/mdn-javascript_statements_import">
                 import特性
-            </a>
+            </a>才能运行此网页
         </p>
+        <ToastNotification
+            lowContrast
+            kind="error"
+            title="注意"
+            subtitle="目前米游社api貌似只返回8个人物了"
+        />
     </div>
     <Button on:click={() => (openCookie = true)}
         ><Icon render={Settings32} /> Cookie Settings
